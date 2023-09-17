@@ -3,6 +3,8 @@ import FUNCOES.FuncaoTemperatura;
 
 import javax.swing.*;
 
+import static java.lang.System.exit;
+
 public class Main
 {
     public static void main(String[] args)
@@ -32,6 +34,8 @@ public class Main
                         else
                         {
                             JOptionPane.showMessageDialog(null, "Programa finalizado");
+                            System.out.println("progama cancelado");
+                            exit(0);
                         }
                     }
                     else
@@ -47,15 +51,18 @@ public class Main
                         double valorRecebido = Double.parseDouble(input);
                         temperatura.converterTemperatura(valorRecebido);
 
-                        int resposta = 0;
+                        int resposta;
                         resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
                         if ((resposta == 0) && (checar(input)))
                         {
-
+                            System.out.println("continuando");
                         }
                         else
                         {
                             JOptionPane.showMessageDialog(null, "Programa finalizado");
+                            System.out.println("cancelado");
+                            exit(0);
+
                         }
 
                     }
@@ -63,10 +70,11 @@ public class Main
                     {
                         JOptionPane.showMessageDialog(null, "Valor inválido");
                     }
-                break;
+
 
             }
         }
+
     }
 
     public static boolean checar(String input)
@@ -82,3 +90,5 @@ public class Main
         }
     }
 }
+
+
